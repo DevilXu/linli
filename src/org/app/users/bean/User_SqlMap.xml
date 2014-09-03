@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="JZ">
+    <typeAlias type="org.app.users.bean.User" alias="User" />
+    
+    <select id="selectDemo" resultClass="User"> 
+  		select id,username,password from hcss_sys_user t where t.password is not null
+    </select> 
+
+</sqlMap>
