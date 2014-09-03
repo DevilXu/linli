@@ -3,23 +3,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>邻里网</title>
-<link href="${base}/public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${base}/public/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="${base}/public/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="${base}/public/css/login/login.css" rel="stylesheet">
 <script type="text/javascript" src="${base}/public/js/common/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${base}/public/plugins/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-	<form class="form-signin" role="form" action="login.action" method="post">
-		<h2 class="form-signin-heading">用户登录</h2>
-		<input type="text" name="username" class="form-control" placeholder="Email address" required autofocus>
-		<input type="password" name="password" class="form-control" placeholder="Password" required>
-		<label class="checkbox">
-			<input type="checkbox" value="remember-me"> Remember me
-		</label>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	</form>
-</div> <!-- /container -->
-
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container">
+	  
+	  </div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-7">
+				<div class="img_v1"></div>
+			</div>
+			<div class="col-xs-3">
+				<form class="form-signin" role="form" action="login.action" method="post">
+					<h2 class="form-signin-heading">用户登录</h2>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<span class="glyphicon glyphicon-user"></span>
+					  </span>
+					  <input type="text" name="username" class="form-control" placeholder="请输入用户名" required autofocus>
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">
+					  	<span class="glyphicon glyphicon-lock"></span>
+					  </span>
+					  <input type="password" name="password" class="form-control" placeholder="请输入密码" required>
+					</div>					
+					
+					<label class="checkbox">
+						<input type="checkbox" value="remember-me">Remember me
+					</label>
+					<button class="btn btn-lg btn-primary btn-block" type="submit"><b>登　录</b></button>
+				</form>		
+			</div>
+			<div class="col-xs-2"></div>
+		</div>
+	</div> <!-- /container -->
 </body>
 </html>
