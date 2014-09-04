@@ -3,11 +3,30 @@
 body {
 	height:100%;
 	width: 100%;
+	background: url('../../image/bg/form_bg.jpg') repeat;
 }
+
 .img_v1 {
-	background: url('../../image/bg/login_v1.png') n;
+	background: url('../../image/bg/login_v1.png') ;
 	height:375px;
 	width:600px;
+}
+.navbar-default .navbar-brand {
+	text-indent:90px;
+	font:20px bold;
+	color: #51a1d6;
+	background: url('../../image/logo/logo.png') no-repeat;
+	background-size:86px 50px;
+}
+.form-signin {
+	margin-top:50px;
+	padding: 10px 20px 30px 20px;
+	border: 2px #E0E0E0 solid;
+	border-radius:5px;
+	background-color: #FFF;
+	-moz-box-shadow:-2px -2px 2px #999 inset;            
+	-webkit-box-shadow:-2px -2px 2px #999 inset;         
+	box-shadow:-2px -2px 2px #999 inset;  
 }
 .row {
 	padding-top:20px;
