@@ -1,4 +1,4 @@
-package org.common.DESede;
+package org.common.encrypt;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
