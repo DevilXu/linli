@@ -5,7 +5,7 @@ body {
 	width: 100%;
 }
 .img_v1 {
-	background: url('../../image/bg/login_v1.png') no-repeat;
+	background: url('../../image/bg/login_v1.png') n;
 	height:375px;
 	width:600px;
 }
