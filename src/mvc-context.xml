@@ -50,6 +50,7 @@
     		<mvc:mapping path="/**"/>
     		<mvc:exclude-mapping path="/signOut*"/>
     		<mvc:exclude-mapping path="/login*"/>
+    		<mvc:exclude-mapping path="/*_common*"/>
     		<bean class="org.common.intercept.LoginIntercept" /> 
     	</mvc:interceptor>
     	 

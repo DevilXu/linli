@@ -10,7 +10,7 @@
 <link href="${base}/public/css/login/login.css" rel="stylesheet">
 </head>
 <body ms-controller="headfoot" >
-	<div ms-include-src="${base}{{headurl}}.html"></div>
+	<div ms-include-src="{{headurl}}"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7 hidden-xs hidden-sm">
@@ -42,13 +42,13 @@
 			<div class="col-md-1"></div>
 		</div>
 	</div> <!-- /container -->
-	<div ms-include-src="${base}{{footurl}}.html"></div>
+	<div ms-include-src="{{footurl}}"></div>
 </body>
 </html>
 <script type="text/javascript" src="${base}/public/js/common/avalon.js"></script>
 <script>
      avalon.define("headfoot", function(vm) {
-         vm.headurl = "/page/common/header";
-         vm.footurl = "/page/common/footer"
+         vm.headurl = "header_common.action";
+         vm.footurl = "footer_common.action";
      })
  </script>

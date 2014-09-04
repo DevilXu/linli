@@ -23,31 +23,25 @@ public class UserController extends AbstractBaseController{
 	@RequestMapping(value="login")
 	public ModelAndView login(String username,String password){
 		if(this.checkParams(new String[]{username,password})){
-			ModelAndView mav = new ModelAndView("succ");
-			mav.addObject("username",username);
-			mav.addObject("password", password);
-			this.getSession().setAttribute("user", username);
+			user.setUsername(username);
+			user.setPassword(password);
+			ModelAndView mav = new ModelAndView("index");
+			this.getSession().setAttribute("user", user);
 			listUser=demoService.getUserByUid();
 			mav.addObject("listUser", listUser);
 			return mav;
 		}
 		return new ModelAndView("login");
 	}
-	
-	@RequestMapping(value="jump")
-	public ModelAndView jump(String username,String password){
-		return new ModelAndView("demo/index");
-	}
 	 
 	@RequestMapping(value="getList")
-	@ResponseBody 
 	public void getList() throws Exception {  
 		EncrypDES3 des3=new EncrypDES3("");
 		String data=des3.Encrytor("123");
 		this.outputAjaxJsonData("{\"data\":\""+data+"\"}");
 	}  
+	
 	@RequestMapping(value="getListResult")
-	@ResponseBody 
 	public void getListResult(String data) throws Exception {  
 		EncrypDES3 des3=new EncrypDES3("");
 		this.outputAjaxJsonData("{\"data\":\""+des3.Decryptor(data)+"\"}");

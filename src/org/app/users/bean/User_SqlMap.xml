@@ -4,7 +4,7 @@
     <typeAlias type="org.app.users.bean.User" alias="User" />
     
     <select id="selectDemo" resultClass="User"> 
-  		select id,username,password from hcss_sys_user t where t.password is not null
+  		select id,username,password from sys_users t where t.password is not null
     </select> 
 
 </sqlMap>
