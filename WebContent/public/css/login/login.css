@@ -1,17 +1,13 @@
 @CHARSET "UTF-8";
 * {padding: 0; margin: 0;}
-body {
+html,body {
 	height:100%;
 	width: 100%;
+}
+body{
 	background: url('../../image/bg/form_bg.jpg') repeat;
 }
-.navbar-default .navbar-brand {
-	text-indent:90px;
-	font:20px bold;
-	color: #51a1d6;
-	background: url('../../image/logo/logo.png') no-repeat;
-	background-size:86px 50px;
-}
+
 .form-top {
 	margin-top: 50px;
 }

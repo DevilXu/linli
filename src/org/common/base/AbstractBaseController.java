@@ -55,7 +55,18 @@ public abstract class AbstractBaseController {
 		this.getResponse().getWriter().println(json);
 		this.getResponse().getWriter().close();
 	}
-	
+	/**
+	 * 将数据以ajax方式输出到页面
+	 * @param String
+	 */
+	protected void outputAjaxJsonData(String outputString)throws Exception{ 		
+		this.getResponse().setContentType("text/json");
+		this.getResponse().setCharacterEncoding("utf-8");
+		this.getResponse().setHeader("Cache-Control","no-cache");
+		this.getResponse().getWriter().println(outputString);
+		this.getResponse().getWriter().close();
+		System.out.println(outputString);
+	}	
 	public HttpSession getSession() {
 		return session;
 	}

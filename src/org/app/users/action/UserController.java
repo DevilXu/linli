@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.common.base.AbstractBaseController;
+import org.common.encrypt.EncrypDES3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +42,15 @@ public class UserController extends AbstractBaseController{
 	@RequestMapping(value="getList")
 	@ResponseBody 
 	public void getList() throws Exception {  
-		listUser=demoService.getUserByUid();
-		this.outputAjaxJsonData(listUser);
+		EncrypDES3 des3=new EncrypDES3("");
+		String data=des3.Encrytor("123");
+		this.outputAjaxJsonData("{\"data\":\""+data+"\"}");
+	}  
+	@RequestMapping(value="getListResult")
+	@ResponseBody 
+	public void getListResult(String data) throws Exception {  
+		EncrypDES3 des3=new EncrypDES3("");
+		this.outputAjaxJsonData("{\"data\":\""+des3.Decryptor(data)+"\"}");
 	}  
 	/**
 	 * 用户登出方法

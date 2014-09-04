@@ -13,7 +13,18 @@ $.ajax({
     type:'post',  
     dataType:'json',  
     success:function(data,status){  
-    	console.log(data);
+    	alert(data.data);
+    	$.ajax({  
+    	    url:"getListResult.action",  
+    	    type:'post',  
+    	    data:{"data":data.data},
+    	    dataType:'json',  
+    	    success:function(data,status){  
+    	    	alert(data.data);
+    	    },  
+    	    error:function(xhr,textStatus,errorThrown){  
+    	    }  
+    	}); 
     },  
     error:function(xhr,textStatus,errorThrown){  
     }  
