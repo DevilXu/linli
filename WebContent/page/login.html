@@ -10,7 +10,17 @@
 <link href="${base}/public/css/login/login.css" rel="stylesheet">
 </head>
 <body ms-controller="headfoot" >
-	<div ms-include-src="{{headurl}}"></div>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="navbar-header">
+						<a class="navbar-brand" style="text-indent:90px;font:20px bold;color: #51a1d6;background: url('${base}/public/image/logo/logo.png') no-repeat 20px;background-size:86px 50px;" href="#">找到你附近的人</a>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7 hidden-xs hidden-sm">
@@ -48,7 +58,6 @@
 <script type="text/javascript" src="${base}/public/js/common/avalon.js"></script>
 <script>
      avalon.define("headfoot", function(vm) {
-         vm.headurl = "header_common.action";
          vm.footurl = "footer_common.action";
      })
  </script>

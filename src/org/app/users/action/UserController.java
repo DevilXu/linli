@@ -8,6 +8,7 @@ import org.common.base.AbstractBaseController;
 import org.common.encrypt.EncrypDES3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,20 +17,19 @@ import org.app.users.service.UserService;
 @Controller
 public class UserController extends AbstractBaseController{
 	@Autowired   
-	private User user=new User();
-	@Autowired   
-	private UserService demoService;
+	private UserService userService;
 	private List<User> listUser=new ArrayList<User>();
 	@RequestMapping(value="login")
-	public ModelAndView login(String username,String password){
-		if(this.checkParams(new String[]{username,password})){
-			user.setUsername(username);
-			user.setPassword(password);
+	public ModelAndView login(@ModelAttribute(" user ") User user){
+		if(this.checkParams(new String[]{user.getUsername(),user.getPassword()})){
 			ModelAndView mav = new ModelAndView("index");
-			this.getSession().setAttribute("user", user);
-			listUser=demoService.getUserByUid();
-			mav.addObject("listUser", listUser);
-			return mav;
+			user=userService.selectUser(user);
+			if(user!=null){
+				this.getSession().setAttribute("user", user);
+				listUser=userService.selectUserList(user);
+				mav.addObject("listUser", listUser);
+				return mav;
+			}
 		}
 		return new ModelAndView("login");
 	}

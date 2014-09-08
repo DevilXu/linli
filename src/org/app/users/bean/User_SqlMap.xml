@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
-<sqlMap namespace="JZ">
+<sqlMap namespace="User">
     <typeAlias type="org.app.users.bean.User" alias="User" />
     
-    <select id="selectDemo" resultClass="User"> 
-  		select id,username,password from sys_users t where t.password is not null
+    <select id="selectDemo" resultClass="User" parameterClass="User"> 
+  		select id,username,password from sys_users t
+  		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="username">
+				t.username=#username#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				t.password=#password#
+			</isNotEmpty>
+  		</dynamic> 
     </select> 
 
 </sqlMap>
