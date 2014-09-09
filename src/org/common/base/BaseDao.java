@@ -90,7 +90,10 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @throws SQLException
      */
     @SuppressWarnings("unchecked")
-	public <T> List<T> selectList(String sqlMap,T entityClass) throws SQLException{
+	public <T> List<T> selectList(String sqlMap,T entityClass,boolean isPage) throws SQLException{
+    	if(isPage){
+    		return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass,0,1);
+    	}
     	return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass);
     }
 }

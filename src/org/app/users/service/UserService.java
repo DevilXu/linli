@@ -16,5 +16,5 @@ public interface UserService{
 	 * @param user
 	 * @return
 	 */
-	public List<User> selectUserList(User user);
+	public List<User> selectUserList(User user,boolean isPage);
 }

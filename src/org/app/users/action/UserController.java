@@ -26,7 +26,7 @@ public class UserController extends AbstractBaseController{
 			user=userService.selectUser(user);
 			if(user!=null){
 				this.getSession().setAttribute("user", user);
-				listUser=userService.selectUserList(user);
+				listUser=userService.selectUserList(user,true);
 				mav.addObject("listUser", listUser);
 				return mav;
 			}

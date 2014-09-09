@@ -22,10 +22,10 @@ public class UserServiceImpl extends BaseDao implements UserService{
 	}
 
 	@Override
-	public List<User> selectUserList(User user) {
+	public List<User> selectUserList(User user,boolean isPage) {
 		// TODO Auto-generated method stub
 		try {
-			return this.selectList("selectDemo",user);
+			return this.selectList("selectDemo",user,isPage);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
