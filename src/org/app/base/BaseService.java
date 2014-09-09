@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  */
 @Controller
-public class CommonService {
+public class BaseService {
 	/**
 	 * 通用头部模版的访问路径
 	 * @return

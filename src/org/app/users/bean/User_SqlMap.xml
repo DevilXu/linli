@@ -3,7 +3,7 @@
 <sqlMap namespace="User">
     <typeAlias type="org.app.users.bean.User" alias="User" />
     
-    <select id="selectDemo" resultClass="User" parameterClass="User"> 
+    <select id="selectDemo" resultClass="User" parameterClass="User" remapResults="true"> 
   		select id,username,password from sys_users t
   		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="username">

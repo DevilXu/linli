@@ -26,8 +26,11 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
         	mav.addObject("error", "数据库操作异常!");
         }
         //空指针异常
-        if(arg3 instanceof NullPointerException){
+        else if(arg3 instanceof NullPointerException){
         	mav.addObject("error", "参数空指针异常!");
+        }
+        else if(arg3 instanceof Exception){
+        	mav.addObject("error", "出错啦!");
         }
 		return mav; 
 	}  

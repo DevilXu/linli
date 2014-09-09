@@ -6,23 +6,41 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
+import org.common.ibatis.LimitSqlExecutor;
+import org.common.ibatis.ReflectUtil;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.engine.execution.SqlExecutor;
+import com.ibatis.sqlmap.engine.impl.ExtendedSqlMapClient;
 
-public class BaseDao extends SqlMapClientDaoSupport{
+public abstract class BaseDao extends SqlMapClientDaoSupport{
 	/**
 	 * BaseDao,Dao需继承此Dao
-	 * 
-	 * @author archie2010 since 2011-3-3 下午10:52:36
 	 */
-    @Resource(name = "sqlMapClient")
+    @Resource
     private SqlMapClient sqlMapClient;
-
+    
+    @Resource
+    private SqlExecutor sqlExecutor;  
+    
+  
+    public void setEnableLimit(boolean enableLimit) {  
+        if (sqlExecutor instanceof LimitSqlExecutor) {  
+            ((LimitSqlExecutor) sqlExecutor).setEnableLimit(enableLimit);  
+        }  
+    }  
     @PostConstruct
-    public void initSqlMapClient() {
-        super.setSqlMapClient(sqlMapClient);
-    }
+    public void initialize() throws Exception { 
+    	super.setSqlMapClient(sqlMapClient);
+        if (sqlExecutor != null) {    
+            if (sqlMapClient instanceof ExtendedSqlMapClient) {  
+                ReflectUtil.setFieldValue(((ExtendedSqlMapClient) sqlMapClient).getDelegate(), "sqlExecutor", SqlExecutor.class,sqlExecutor);  
+            }  
+        }  
+    }  
+    
+    
     /**
      * 对于新增操作的封装
      * @param sqlMap
