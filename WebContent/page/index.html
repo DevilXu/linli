@@ -20,6 +20,9 @@
 				</tr>
 			</#list>
 		</#if>
+		<#if pages?exists>
+			<div>${pages.prePage}-${pages.nowPage}-${pages.nextPage}-${pages.pageCount}-${pages.total}</div>
+		</#if>
 	</table>
 	<a href="javascript:des3()">跳转</a>
 </body>

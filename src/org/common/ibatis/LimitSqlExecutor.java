@@ -43,7 +43,12 @@ public class LimitSqlExecutor extends SqlExecutor{
             RowHandlerCallback callback) throws SQLException {  
         if ((skipResults != NO_SKIPPED_RESULTS || maxResults != NO_MAXIMUM_RESULTS)  
                 && supportsLimit()) {  
-            sql = dialect.getLimitString(sql, skipResults, maxResults);  
+        	if(skipResults==0){
+        		sql=dialect.getCountString(sql);
+        	}
+        	else{
+        		sql = dialect.getLimitString(sql, skipResults, maxResults);          		
+        	}
             if(logger.isDebugEnabled()){  
                 logger.debug(sql);  
             }  

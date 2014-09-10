@@ -2,9 +2,10 @@ package org.app.users.bean;
 
 import java.io.Serializable;
 
+import org.common.base.BaseBean;
 import org.springframework.stereotype.Component;
 @Component
-public class User implements Serializable{
+public class User extends BaseBean implements Serializable{
 	private Long id;
 	private String username;
 	private String password;

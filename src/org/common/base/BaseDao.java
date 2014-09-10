@@ -90,9 +90,15 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @throws SQLException
      */
     @SuppressWarnings("unchecked")
-	public <T> List<T> selectList(String sqlMap,T entityClass,boolean isPage) throws SQLException{
+	public <T extends BaseBean> List<T> selectList(String sqlMap,T entityClass,boolean isPage) throws SQLException{
     	if(isPage){
-    		return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass,0,1);
+    		if(entityClass.getTotal()==0){
+    			List<T> list=this.getSqlMapClient().queryForList(sqlMap, entityClass,0,entityClass.getPageSize());
+    			if(list.size()>0){
+    				entityClass.setTotal(list.get(0).getTotal());
+    			}
+    		}
+    		return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass,entityClass.getNowPage(),entityClass.getPageSize());
     	}
     	return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass);
     }
