@@ -35,6 +35,7 @@ public abstract class BaseBean {
 	public void setPrePage(int prePage) {
 		this.prePage = prePage;
 	}
+	//获取总共页数
 	public int getPageCount() {
 		this.pageCount=total%pageSize==0?total%pageSize:(total/pageSize+1);
 		return pageCount;
