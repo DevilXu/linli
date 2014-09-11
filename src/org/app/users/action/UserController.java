@@ -21,7 +21,7 @@ public class UserController extends AbstractBaseController{
 	@RequestMapping(value="login")
 	public ModelAndView login(@ModelAttribute(" user ") User user){
 		if(this.checkParams(new String[]{user.getUsername(),user.getPassword()})){
-			ModelAndView mav = new ModelAndView("index");
+			ModelAndView mav = new ModelAndView("redirect:toIndex.action");
 			user=userService.selectUser(user);
 			if(user!=null){
 				this.getSession().setAttribute("user", user);
@@ -34,7 +34,12 @@ public class UserController extends AbstractBaseController{
 		}
 		return new ModelAndView("login");
 	}
-	 
+	
+	@RequestMapping(value="toIndex")
+	public ModelAndView toIndex() throws Exception {  
+		return new ModelAndView("index");
+	}  
+	
 	@RequestMapping(value="getList")
 	public void getList() throws Exception {  
 		EncrypDES3 des3=new EncrypDES3("");
