@@ -5,8 +5,8 @@
 <title>邻里网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <meta content="telephone=no" name="format-detection" />
-<link href="${base}/public/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="${base}/public/plugins/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+<link href="${base}/public/plugins/bootstrap3/css/bootstrap.css" rel="stylesheet">
+<link href="${base}/public/plugins/bootstrap3/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${base}/public/css/login/login.css" rel="stylesheet">
 </head>
 <body ms-controller="headfoot" >
@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="navbar-header">
-						<a class="navbar-brand" style="text-indent:90px;font:20px bold;color: #51a1d6;background: url('${base}/public/image/logo/logo.png') no-repeat 20px;background-size:86px 50px;" href="#">找到你附近的人</a>
+						<a class="navbar-brand" style="text-indent:90px;font:20px bold;color: #51a1d6;background: url('${base}/public/image/logo/logo.png') no-repeat;background-size:86px 50px;" href="#">找到你附近的人</a>
 					</div>			
 				</div>
 			</div>
@@ -52,7 +52,7 @@
 			<div class="col-md-1"></div>
 		</div>
 	</div> <!-- /container -->
-	<div ms-include-src="{{footurl}}"></div>
+	<div ms-include-src="{{footurl}}" class="hidden-xs hidden-sm"></div>
 </body>
 </html>
 <script type="text/javascript" src="${base}/public/js/common/avalon.js"></script>

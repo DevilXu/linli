@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+.index-list-icon {
+	border:1px solid #9BBBDB;
+	height:150px;
+	display: block;
+	margin-top: 10px;
+}

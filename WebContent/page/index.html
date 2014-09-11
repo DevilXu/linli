@@ -5,26 +5,31 @@
 <title>邻里网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <meta content="telephone=no" name="format-detection" />
-<link href="${base}/public/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="${base}/public/plugins/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+<link href="${base}/public/plugins/bootstrap3/css/bootstrap.css" rel="stylesheet">
+<link href="${base}/public/plugins/bootstrap3/css/bootstrap-theme.css" rel="stylesheet">
+<link href="${base}/public/css/index/style.css" rel="stylesheet">
 </head>
 <body ms-controller="headfoot">
 	<div ms-include-src="{{headurl}}"></div>
-	 <table>
-		<#if listUser?exists>
-			<#list listUser as user>
-				<tr>
-					<td >${user.id}</td>
-					<td >${user.username}</td>
-					<td >${user.password}</td>
-				</tr>
-			</#list>
-		</#if>
-		<#if pages?exists>
-			<div>${pages.prePage}-${pages.nowPage}-${pages.nextPage}-${pages.pageCount}-${pages.total}</div>
-		</#if>
-	</table>
-	<a href="javascript:des3()">跳转</a>
+ 	<div class="container marketing">
+      	<!-- Three columns of text below the carousel -->
+      	<div class="row">
+	      	<div class="col-md-3  col-xs-6">
+	      		<a href="baiduMapPage.action">
+					<div class="index-list-icon"><p>地图定位功能,实现登录用户的地理位置获取并提供地理搜索功能!</p></div>
+				</a>
+	        </div>
+	      	<div class="col-md-3 col-xs-6">
+				<div class="index-list-icon"><p>地图定位功能,实现登录用户的地理位置获取并提供地理搜索功能!</p></div>
+	        </div>
+	        <div class="col-md-3 col-xs-6 ">
+				<div class="index-list-icon"><p>地图定位功能,实现登录用户的地理位置获取并提供地理搜索功能!</p></div>
+	        </div>
+	        <div class="col-md-3 col-xs-6">
+				<div class="index-list-icon"><p>地图定位功能,实现登录用户的地理位置获取并提供地理搜索功能!</p></div>
+	        </div>
+     	</div>	
+	</div>
 </body>
 </html>
 
@@ -35,28 +40,4 @@
      	vm.headurl = "header_common.action";
         vm.footurl = "footer_common.action"
      })
-     function des3(){
- 		$.ajax({  
- 		    url:"getList.action",  
- 		    type:'post',  
- 		    dataType:'json',  
- 		    success:function(data,status){  
- 		    	alert(data.data);
- 		    	$.ajax({  
- 		    	    url:"getListResult.action",  
- 		    	    type:'post',  
- 		    	    data:{"data":data.data},
- 		    	    dataType:'json',  
- 		    	    success:function(data,status){  
- 		    	    	alert(data.data);
- 		    	    },  
- 		    	    error:function(xhr,textStatus,errorThrown){  
- 		    	    }  
- 		    	}); 
- 		    },  
- 		    error:function(xhr,textStatus,errorThrown){  
- 		    }  
- 		});      	 
-     }
-
  </script>

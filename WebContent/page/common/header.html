@@ -4,11 +4,11 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="navbar-header">
-					<a class="navbar-brand" style="text-indent:90px;font:20px bold;color: #51a1d6;background: url('${base}/public/image/logo/logo.png') no-repeat 20px;background-size:86px 50px;" href="#">找到你附近的人</a>
+					<a class="navbar-brand" style="text-indent:90px;font:20px bold;color: #51a1d6;background: url('${base}/public/image/logo/logo.png') no-repeat;background-size:86px 50px;" href="#">找到你附近的人</a>
 				</div>			
 			</div>
 			<#if user?exists>   
-				<div class="col-md-6">
+				<div class="col-md-6 hidden-xs hidden-ms">
 					<p class="navbar-text">欢迎您，${user.username}</p>
 				</div>
 		    </#if>
