@@ -102,4 +102,5 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
     	}
     	return (List<T>) sqlMapClient.queryForList(sqlMap, entityClass);
     }
+
 }
