@@ -7,6 +7,7 @@ import java.util.List;
 import org.app.users.bean.User;
 import org.app.users.service.UserService;
 import org.common.base.BaseDao;
+import org.common.base.Util;
 import org.common.redis.RedisClientTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,8 +32,14 @@ public class UserServiceImpl extends BaseDao implements UserService{
 		// TODO Auto-generated method stub
 		List<User> listUser=new ArrayList<User>();
 		try {
-			listUser=this.selectList("selectDemo",user,isPage);
-			redisClientTemplate.set("key", "强奸章秋蕾");
+			if(redisClientTemplate.get(Util.serialize(user))==null){
+				listUser=this.selectList("selectDemo",user,isPage);
+				redisClientTemplate.set(Util.serialize(user), Util.serialize(listUser));
+			}
+			else{
+				listUser=(List<User>) Util.unserialize(redisClientTemplate.get(Util.serialize(user)));
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

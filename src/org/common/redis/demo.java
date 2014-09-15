@@ -79,18 +79,18 @@ public class demo
     public void show()
     {
         // key检测
-        testKey();
+//        testKey();
         // string检测
-        testString();
+//        testString();
         // list检测
-        testList();
+//        testList();
         // set检测
-        testSet();
+//        testSet();
         // sortedSet检测
         testSortedSet();
         // hash检测
-        testHash();
-        shardedJedisPool.returnResource(shardedJedis);
+//        testHash();
+//        shardedJedisPool.returnResource(shardedJedis);
     }
  
     private void testKey()

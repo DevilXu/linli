@@ -41,14 +41,6 @@
 <script type="text/javascript" src="${base}/public/js/common/avalon.js"></script>
 <script type="text/javascript" src="${base}/public/js/common/jquery-1.9.1.min.js"></script>
 <script>
-	$.ajax({
-		type: "GET",
-        url: "getList.action",
-        dataType: "json",
-        success: function(data){
-        	console.log(data);
-        }	
-	})
     avalon.define("headfoot", function(vm) {
     	vm.headurl = "header_common.action";
     	vm.footurl = "footer_common.action"
