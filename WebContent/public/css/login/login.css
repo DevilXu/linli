@@ -20,7 +20,7 @@ body{
 	-webkit-box-shadow:-2px -2px 2px #999 inset;         
 	box-shadow:-2px -2px 2px #999 inset;  
 }
-
+.margin1 {height: 40px;}
 .input-group+.input-group {
 	margin: 10px 0 0 0 ;
 }
