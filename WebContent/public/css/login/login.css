@@ -30,3 +30,10 @@ body{
 .form-signin-heading {
 	text-align: center;	
 }
+.text-right {
+	color: #C2C2C2;
+}
+
+a,a:hover {
+	color: #C2C2C2;
+}

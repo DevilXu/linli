@@ -4654,7 +4654,7 @@
     }
 
     avalon.config({
-        loader: true
+        loader: false
     })
 
     avalon.ready(function() {

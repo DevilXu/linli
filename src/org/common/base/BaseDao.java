@@ -48,7 +48,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @return
      * @throws SQLException
      */
-    public <T> Object insert(String sqlMap,Class<T> entityClass) throws SQLException{
+    public <T extends BaseBean> Object insert(String sqlMap,T entityClass) throws SQLException{
     	return sqlMapClient.insert(sqlMap, entityClass);
     }
     /**
@@ -58,7 +58,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @return
      * @throws SQLException
      */
-    public <T> Object delete(String sqlMap,T entityClass) throws SQLException{
+    public <T extends BaseBean> Object delete(String sqlMap,T entityClass) throws SQLException{
     	return sqlMapClient.delete(sqlMap, entityClass);
     }
     /**
@@ -68,7 +68,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @return
      * @throws SQLException
      */
-    public <T> Object update(String sqlMap,T entityClass) throws SQLException{
+    public <T extends BaseBean> Object update(String sqlMap,T entityClass) throws SQLException{
     	return sqlMapClient.update(sqlMap, entityClass);
     }
     /**
@@ -79,7 +79,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport{
      * @throws SQLException
      */
     @SuppressWarnings("unchecked")
-	public <T> T select(String sqlMap,T entityClass) throws SQLException{
+	public <T extends BaseBean> T select(String sqlMap,T entityClass) throws SQLException{
     	return (T) sqlMapClient.queryForObject(sqlMap, entityClass);
     }
     /**

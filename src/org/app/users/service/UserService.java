@@ -17,4 +17,10 @@ public interface UserService{
 	 * @return
 	 */
 	public List<User> selectUserList(User user,boolean isPage);
+	/***
+	 * 插入用户数据
+	 * @return
+	 * @throws Exception
+	 */
+	public long insertUser(User user) throws Exception;
 }

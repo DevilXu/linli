@@ -45,7 +45,15 @@ public class UserController extends AbstractBaseController{
 		listUser=userService.selectUserList(user,false);
 		this.outputAjaxJsonData(listUser);
 	}  
-
+	@RequestMapping(value="registerPage")
+	public ModelAndView registerPage(){
+		return new ModelAndView("register");
+	}
+	@RequestMapping(value="register")
+	public ModelAndView register(@ModelAttribute(" user ") User user) throws Exception{
+		userService.insertUser(user);
+		return new ModelAndView("login");
+	}
 	/**
 	 * 用户登出方法
 	 * @return

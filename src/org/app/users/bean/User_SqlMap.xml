@@ -14,5 +14,12 @@
 			</isNotEmpty>
   		</dynamic> 
     </select> 
-
+	
+	<insert id="insertUser" parameterClass="User">
+		INSERT INTO sys_users(username,password,email,sex)
+		VALUES (#username#,#password#,#email#,#sex#);	
+		<selectKey keyProperty="id" resultClass="long">
+		    SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+	</insert>
 </sqlMap>

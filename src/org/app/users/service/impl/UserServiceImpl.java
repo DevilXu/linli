@@ -19,7 +19,11 @@ public class UserServiceImpl extends BaseDao implements UserService{
 	public User selectUser(User user) {
 		// TODO Auto-generated method stub
 		try {
-			return (User) this.select("selectDemo", user);
+			User result=(User) Util.unserialize(redisClientTemplate.get(getRedisKey(user)));
+			if(result==null){
+				result=(User) this.select("selectDemo", user);
+			}
+			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,4 +51,22 @@ public class UserServiceImpl extends BaseDao implements UserService{
 		return listUser;
 	}
 
+	@Override
+	public long insertUser(User user) throws Exception {
+		// TODO Auto-generated method stub
+		long i=(Long) this.insert("insertUser", user);
+		user.setId(i);
+		if(i>0){
+			redisClientTemplate.set(getRedisKey(user),Util.serialize(user));
+		}
+		return i;
+	}
+	/***
+	 * 获取username+password的redis中存储的key
+	 * @param user
+	 * @return
+	 */
+	public byte[] getRedisKey(User user){
+		return (user.getUsername()+":"+user.getPassword()).getBytes();
+	}
 }	
