@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import net.sf.json.JSONArray;
+import com.alibaba.fastjson.JSONArray;
+
 /***
  * controller 类中的基本对象及方法初始化
  * @author hegang
@@ -41,12 +42,10 @@ public abstract class AbstractBaseController {
 	 */
 	protected void outputAjaxJsonData(Object obj)throws Exception{
 		String json=null;
-		JSONArray jsonObject;
 		if (obj == null){
 			json = "[{\"success\":false}]"; 
 		}else{			
-			jsonObject = JSONArray.fromObject(obj);
-			json = jsonObject.toString();			
+			json = JSONArray.toJSONString(obj);		
 		}
 
 		this.getResponse().setContentType("text/json");

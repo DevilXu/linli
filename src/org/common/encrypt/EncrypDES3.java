@@ -139,7 +139,11 @@ public class EncrypDES3 {
      */  
     public static void main(String[] args) throws Exception {  
         EncrypDES3 des = new EncrypDES3("134");  
-        String msg ="明文是明文是明文是明文是明文是明文是明文是明文是明文是";  
+        String msg = "testtestte#$sttesttes7 ttesttesttestt2esttes ttesttesttest#$testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+				+ "testtest#$testt1esttesttesttesttesttestt1esttesttesttesttesttesttesttesttesttesttesttesttest"
+				+ "testte#$sttes#$ttes1ttesttesttestte3sttestte sttes1tt@#$esttesttesttesttesttest"
+				+ "testtesttes ttesttest testtesttesttesttesttesttesttesttesttesttesttest"
+				+ "testtesttes ttesttesttesttesttesttestt esttesttesttesttest#$testtesttesttesttesttesttesttest";   
         String encontent = des.Encrytor(msg);  
         String decontent = des.Decryptor(encontent);  
         System.out.println("明文是:" + msg);  

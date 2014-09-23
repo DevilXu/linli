@@ -46,6 +46,7 @@
 
 		            </div>
           		</div>
+          		<div id="jiami"></div><div id="jiemi"></div>
         	</div>       	
      	</div>	
      	
@@ -60,4 +61,13 @@
     	vm.headurl = "header_common.action";
     	vm.footurl = "footer_common.action"
     })
+    
+	$.ajax({
+	    type: "post",
+	    url: "getList.action",
+	    dataType: "json",
+	    success: function(data){
+			console.log(data);
+        }
+    });
  </script>

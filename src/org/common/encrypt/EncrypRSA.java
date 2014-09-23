@@ -82,17 +82,17 @@ public class EncrypRSA {
         //生成一个密钥对，保存在keyPair中  
         KeyPair keyPair = keyPairGen.generateKeyPair();  
         //得到私钥  
-        RSAPrivateKey privateKey = (RSAPrivateKey)keyPair.getPrivate();               
+        RSAPrivateKey privateKey = (RSAPrivateKey)keyPair.getPrivate();    
         //得到公钥  
         RSAPublicKey publicKey = (RSAPublicKey)keyPair.getPublic();  
-          
         //用公钥加密  
         byte[] srcBytes = msg.getBytes();  
         byte[] resultBytes = rsa.encrypt(publicKey, srcBytes);  
           
         //用私钥解密  
         byte[] decBytes = rsa.decrypt(privateKey, resultBytes);  
-          
+        System.out.println("公钥:" + publicKey); 
+        System.out.println("私钥:" + privateKey); 
         System.out.println("明文是:" + msg);  
         System.out.println("加密后是:" + new String(resultBytes));  
         System.out.println("解密后是:" + new String(decBytes));  

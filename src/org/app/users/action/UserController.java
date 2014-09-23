@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.common.base.AbstractBaseController;
-import org.common.encrypt.EncrypDES3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,6 +43,7 @@ public class UserController extends AbstractBaseController{
 	public void getList(User user) throws Exception {  
 		listUser=userService.selectUserList(user,false);
 		this.outputAjaxJsonData(listUser);
+	
 	}  
 	@RequestMapping(value="registerPage")
 	public ModelAndView registerPage(){
